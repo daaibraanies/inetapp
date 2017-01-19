@@ -18,12 +18,13 @@
           <!-- Html.ValidationMessageFor(m => m.Password)-->
         </p>
         <p style="display:inline;">
+           @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+             <br/>
             <div style="float:left">@Html.CheckBoxFor(m => m.RememberMe) </div>
-            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             <br/>
             @Html.ActionLink("Register", "Register") if you don't have an account.
         </p>
-        <input type="submit" id="submit">
+        <input type="submit" id="submit" value="Submit">
     </form>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </div>
