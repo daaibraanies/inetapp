@@ -1,0 +1,24 @@
+﻿.q {
+	background: #FFF url(http://httpjunkie.com/images/search-placehold.png) no-repeat 9px center;
+  border: solid 1px #acd9ff;
+  padding: 9px 10px 9px 32px;
+  width: 58%;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  -webkit-transition: all .7s;
+  -moz-transition: all .7s;
+  transition: all .7s
+}
+
+.q:focus {
+  background: #edf7f7 url(http://httpjunkie.com/images/search-focus.png) no-repeat 9px center;
+  width: 95%;
+  border-color: #ff1a65;
+
+  -webkit-box-shadow: 0 0 5px rgba(255,26,101,.8);
+	-moz-box-shadow: 0 0 5px rgba(255,26,101,.8);
+	box-shadow: 0 0 5px rgba(255,26,101,.8);
+}

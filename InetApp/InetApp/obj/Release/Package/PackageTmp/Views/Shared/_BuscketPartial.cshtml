@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "_BuscketPartial";
+    InetApp.Models.Cart cart = (InetApp.Models.Cart)HttpContext.Current.Session["Cart"];
+}
+
+<ul id="cart" class="dropdown">
+    @if (cart != null)
+{
+    foreach (InetApp.Models.Pur_strings item in cart.Lines)
+    {
+        <li><a style="color: rgb(87,183,223); width:140px;">@item.Good.Good_Name : @item.Quantity</a></li>
+    }
+        <li><a style="color: rgb(87,183,223); width: 140px;">Total:@cart.TotalCost()</a></li>
+}
+    else
+    {
+        <li><a style="color: rgb(87,183,223); width: 140px;">Empty</a></li>
+    }
+    
+</ul>
+

@@ -1,0 +1,33 @@
+﻿@model InetApp.Models.LoginModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div id="reg-form">
+    <form action="~/Account/Login" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <p>
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+           <!-- Html.ValidationMessageFor(m => m.UserName)-->
+        </p>
+        <p>
+           @Html.LabelFor(m => m.Password)
+           @Html.PasswordFor(m => m.Password)
+          <!-- Html.ValidationMessageFor(m => m.Password)-->
+        </p>
+        <p style="display:inline;">
+            <div style="float:left">@Html.CheckBoxFor(m => m.RememberMe) </div>
+            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            <br/>
+            @Html.ActionLink("Register", "Register") if you don't have an account.
+        </p>
+        <input type="submit" id="submit">
+    </form>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

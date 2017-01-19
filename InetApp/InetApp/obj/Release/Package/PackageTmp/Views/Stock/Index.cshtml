@@ -1,0 +1,33 @@
+﻿@model IEnumerable<InetApp.Models.Depot>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="items-wrapper">
+    @foreach (var item in Model)
+    {
+        <div class="small-item-list-wrapper">
+         <div class="small-item-info">
+                 <span>@Html.ActionLink(item.Good_Name, "Good", new { goodId = item.Good_id }, null)</span>
+                 <span>by</span>
+                 <span>@Html.ActionLink(item.Provider_Name, "Good", new { Provider = item.Provider_Name }, null)</span>
+                 <span>@Html.ActionLink(item.Category, "Good", new { Category = item.Category }, null)</span>
+        </div>
+        <div class="small-list-wrapper">
+           <div class="item-price-wrapper">
+               <a href="~/Stock/Good?Id=@item.Id">
+                   <div class="item-price">
+                           <span class="item-price-cell">Price:</span>
+                           <span class="itemCOST">@item.Price</span>
+                           <span class="item-price-cell">bucks!</span>
+                   </div>
+               </a>
+           </div>
+        </div>
+     </div>
+    }
+</div>
+
+
+
+

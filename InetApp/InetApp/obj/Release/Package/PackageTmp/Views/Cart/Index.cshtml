@@ -1,0 +1,56 @@
+﻿@model InetApp.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    int index = 0;
+    string typeoftrace = "even";
+}
+
+<body>
+   <div id="items-wrapper">
+       <table id="cart-table">
+           <thead>
+               <tr>
+                   <th>#</th>
+                   <th>Articul</th>
+                   <th>Name</th>
+                   <th>Quantity</th>
+                   <th>Price</th>
+                   <th>Sum</th>
+               </tr>
+           </thead>
+
+           <tbody>
+               @foreach (InetApp.Models.Pur_strings item in Model.Lines)
+               {
+                   if (typeoftrace == "even") { typeoftrace = "odd"; }
+                   else { typeoftrace = "even"; }
+                   index++;
+                   <tr class="@typeoftrace">
+                       <td class="fist">@index</td>
+                       <td>@item.Gd_id</td>
+                       <td>@item.Good.Good_Name</td>
+                       <td>@item.Quantity</td>
+                       <td>@item.Good.Price</td>
+                       <td>@item.Cost</td>
+                       <tr class="actions-to-cart">
+                           <td>@Html.ActionLink("Edit", "Good", "Stock", new { Id = item.Good.Id }, null)</td>
+                           <td>@Html.ActionLink("Remove", "RemoveFromCart", "Cart", new { goodId = item.Good.Id, returnUrl = Request.Url.PathAndQuery }, null)</td>
+                       </tr>
+                   </tr>
+               }
+               <tr class="@typeoftrace">
+                   <td  colspan="1">Total:</td>
+                   <td colspan="1">@Model.TotalCost()</td>
+               </tr>            
+           </tbody>
+       </table>
+       <div class="cart-confirm-wrapper">
+           <form action="~/Cart/RemoveAll" id="cart-remove-form">
+               <input class="add-btn" type="submit" value="Remove all" />
+           </form>
+           <form action="~/Customer" id="cart-confirm-form">
+               <input class="add-btn" type="submit" value="Confirm" />
+           </form>
+       </div>
+   </div>
+</body>

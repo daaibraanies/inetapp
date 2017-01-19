@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "_HeaderPartial";
+    IEnumerable<InetApp.Models.Good> Goods = ViewBag.Goods;
+    var categories = Goods.GroupBy(x => x.Good_Category).Select(g => g.First()).ToList();
+}
+<div class="nav">
+    <div class="nav-wrapper">
+        <ul>
+            <li><a href="~/Stock/Index">Categories:</a></li>
+
+            @foreach (var category in categories)
+            {
+                <li class="parent">
+                    @Html.ActionLink(category.Good_Category, "Good","Stock", new { Category = category.Good_Category }, null)
+                    <ul class="dropdown">
+                        @foreach (var item in Goods.Where(x => x.Good_Category == category.Good_Category))
+                        {
+                            <li>@Html.ActionLink(item.Good_Name, "Good", "Stock", new { goodId = item.Id }, null)</li>
+                        }
+                    </ul>
+                </li>
+            }
+            <li id="bskt" class="parent">
+                <a id="bskt-bkg" href="~/Cart/Index"></a>
+                 @Html.Partial("_BuscketPartial")
+            </li>
+        </ul>
+    </div>
+</div>
+

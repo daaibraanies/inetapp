@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<link href="../../Content/HomeSlider.css" type="text/css" rel="stylesheet"/>
+<link href="../../Content/Search.css" type="text/css" rel="stylesheet" />
+
+<div id="items-wrapper" style="text-align:center;">
+
+    <div style="width:100%;text-align:center;"><h2 style="font-size:large;">Welcome to Building Stock</h2></div>
+    <div class='csslider1 autoplay' style="margin:0px auto;">
+        <input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide'>
+        <input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide'>
+        <input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide'>
+        <input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
+        <input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor'>
+        <ul>
+            <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+                <img src="../../Images/Slider/wooden.jpg" style="width: 100%;">
+            </div>
+            <li class='num0 img'>
+                <a href="~/Stock/Good?Category=Wooden" target=""><img src='../../Images/Slider/wooden.jpg' alt='Buns' title='Buns' /> </a>
+            </li>
+            <li class='num1 img'>
+                <a href="~/Stock/Good?Category=Sand & Cement" target=""><img src='../../Images/Slider/sand.jpg' alt='Croissant' title='Croissant' /> </a>
+            </li>
+            <li class='num2 img'>
+                <a href="~/Stock/Good?Category=Spikes" target=""><img src='../../Images/Slider/spikes.jpg' alt='Lemon pie' title='Lemon pie' /> </a>
+            </li>
+
+        </ul>
+        <div class='cs_description'>
+            <label class='num0'>
+                <span class="cs_title"><span class="cs_wrapper">Wooden</span></span>
+            </label>
+            <label class='num1'>
+                <span class="cs_title"><span class="cs_wrapper">Sand</span></span>
+            </label>
+            <label class='num2'>
+                <span class="cs_title"><span class="cs_wrapper">Spikes</span></span>
+            </label>
+        </div>
+
+        <div class='cs_arrowprev'>
+            <label class='num0' for='cs_slide1_0'></label>
+            <label class='num1' for='cs_slide1_1'></label>
+            <label class='num2' for='cs_slide1_2'></label>
+        </div>
+        <div class='cs_arrownext'>
+            <label class='num0' for='cs_slide1_0'></label>
+            <label class='num1' for='cs_slide1_1'></label>
+            <label class='num2' for='cs_slide1_2'></label>
+        </div>
+
+        <div class='cs_bullets'>
+            <label class='num0' for='cs_slide1_0'>
+                <span class='cs_point'></span>
+                <span class='cs_thumb'><img width="90" height="50" src='../../Images/Slider/wooden.jpg' alt='Wooden' title='Wooden' /></span>
+            </label>
+            <label class='num1' for='cs_slide1_1'>
+                <span class='cs_point'></span>
+                <span class='cs_thumb'><img width="90" height="50" src='../../Images/Slider/sand.jpg' alt='Sand' title='Sand' /></span>
+            </label>
+            <label class='num2' for='cs_slide1_2'>
+                <span class='cs_point'></span>
+                <span class='cs_thumb'><img width="90" height="50" src='../../Images/Slider/spikes.jpg' alt='Spikes' title='Spikes' /></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="search" style="margin-top:7px;">
+        <form action="~/Stock/Search" method="get">
+            <p>Search input:</p>
+            <input type="text" class="q" name="searchTerm" placeholder="Search" />
+            </form>
+        </div>
+    </div>

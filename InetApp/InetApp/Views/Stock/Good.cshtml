@@ -1,0 +1,43 @@
+﻿@model IEnumerable<InetApp.Models.Depot>
+
+@{
+    ViewBag.Title = "Good";
+}
+
+<div class="good-list" id="items-wrapper">
+    @foreach (var item in Model)
+{
+    <form action="~/Cart/AddToCart" method="post">
+        <div class="item-list-wrapper">
+            <div class="item-buy-wrapper">
+                <div class="item-price-wrapper">
+                    <div class="item-price">
+                        <span class="item-price-cell">Price:</span>
+                        <span class="itemCOST">@item.Price</span>
+                        <span class="item-price-cell">bucks!</span>
+                    </div>
+                </div>
+                <div class="item-add-to-busket">
+                    <input type="hidden" name="returnUrl" value="@Request.Url.PathAndQuery" />
+                    <input type="hidden" value="@item.Id" name="goodId" />
+                    <input class="add-btn" value="Add this" type="submit" />
+                </div>
+            </div>
+            <div class="item-info-wrapper">
+                <p>
+                    <div class="info-slice">This @item.Good_Name</div>
+                    <br />
+                    <div class="info-slice">Powered by @item.Provider_Name</div>
+                    <br />
+                    <div class="info-slice">Choose :</div>
+                </p>
+                <p>
+                    <div class="info-slice"><input id="qnt-@item.Id" class="qnt-input" type="text" name="qnt" placeholder="1" /></div>
+                    <div class="info-slice">out of @item.Depot_Quantity!</div>
+                </p>
+            </div>
+        </div>
+    </form>  
+}
+</div>
+

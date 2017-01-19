@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "GetPurchase";
+}
+<div id="items-wrapper"
+<p>
+    <h1>Thanks!</h1>
+    <h2>Your order is about to be served.</h2>
+    <h2>We'll call u shortly later.</h2>
+    <h2>You can find your check here : <a href="~/Customer/GetCheck?purchaseId=@ViewBag.prId">Get the bill</a></h2>
+</p>
+<p>
+    @Html.ActionLink("Home","Index","Stock")
+</p>

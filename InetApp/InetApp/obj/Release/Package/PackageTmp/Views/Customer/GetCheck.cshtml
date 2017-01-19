@@ -1,0 +1,72 @@
+﻿@model IEnumerable<InetApp.Models.Pur_strings>
+@{
+    ViewBag.Title = "GetCheck";
+    Layout = null;
+    double total = 0;
+}
+
+<style>
+    table{
+        margin:0px auto;
+        text-align:center;
+        font-size:large;
+        border:2px #000000 solid;
+        width:600px;
+        height:100%;
+    }
+    th, td {
+        border: 2px #000000 solid;
+        min-height:25px;
+        height:auto;
+        max-height:70px;
+        width:80px;
+    }
+    a{
+       margin:20px auto;
+    }
+
+</style>
+
+
+<table id="cart-table">
+    <thead>
+        <tr>
+            <th colspan="1">Purchase number: </th>
+            <th colspan="1">@Model.FirstOrDefault().Pur_id</th>
+            <th colspan="4"></th>
+        </tr>
+        <tr>
+            <th>#</th>
+            <th>Articul</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Sum</th>
+        </tr>
+    </thead>
+    @using (InetApp.Models.StockContext db = new InetApp.Models.StockContext()) { 
+    <tbody>
+        @foreach (InetApp.Models.Pur_strings item in Model)
+        {
+
+            var good = from p in db.Depots where p.Id == item.Gd_id select p.Good_Name;
+            double price = item.Cost / item.Quantity;
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Gd_id</td>
+                <td>@good.FirstOrDefault().ToString()</td>
+                <td>@item.Quantity</td>
+                <td>@price</td>
+                <td>@item.Cost</td>
+            </tr>
+            total += item.Cost;
+        }
+
+        <tr>
+            <td colspan="1">Total:</td>
+            <td colspan="1">@total</td>
+        </tr>
+    </tbody>
+    }
+    <a onclick="window.print()" href="#">Print</a>
+</table>

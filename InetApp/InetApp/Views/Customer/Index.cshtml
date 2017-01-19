@@ -1,0 +1,51 @@
+﻿@Scripts.Render("~/bundles/payment")
+@Styles.Render("~/Content/payment")
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <div class="container">
+        <form action="~/Customer/GetPayed" method="post">
+            <h1><b>Payment form</b></h1>
+
+            <span class="fieldRow">
+                <input id="name" name="name" type="name" placeholder="" />
+                <label for="name">First name</label>
+                <i for="name" class="fa fa-user"></i>
+            </span>
+
+            <span class="fieldRow">
+                <input id="surname" name="surname" type="name" placeholder="" />
+                <label for="surname">Last name</label>
+                <i for="surname" class="fa fa-user"></i>
+            </span>
+
+            <span class="fieldRow">
+                <input name="cc" id="cc"  class="credit_card_number" type="text" placeholder="" />
+                <label for="cc">Credit card number</label>
+                <i for="cc" class="fa fa-credit-card"></i>
+                <div class="zoomBtn">ZOOM</div>
+            </span>
+
+            <span class="fieldRow col2">
+                <input name="cvv" id="cvv" type="text" placeholder="" />
+                <label for="cvv">CVV</label>
+                <i for="cvv" class="fa fa-lock"></i>
+            </span>
+
+            <span class="fieldRow col2 last">
+                <input name="date" id="date" type="text" placeholder="" />
+                <label for="date">Date</label>
+                <i for="date" class="fa  fa-calendar"></i>
+            </span>
+
+            <button type="submit">PAY NOW</button>
+        </form>
+</div>
+
+
+    <div class="overlay">
+        <input class="credit_card_number credit_card_number2" />
+        <button>OK! It's right!</button>
+    </div>

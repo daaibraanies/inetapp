@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    
+}
+
+<div id="items-wrapper">
+    <img src="../../Images/errorCat.jpg" width="400px" height="400px" />
+    <p>
+        It seems that ur query has been caught by a kitten!
+    </p>
+    <p>
+        But seriusly here is some info:
+        <br />
+        @ViewBag.ErrorMessage
+    </p>
+</div>
