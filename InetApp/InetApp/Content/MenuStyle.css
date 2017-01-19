@@ -33,12 +33,22 @@ section:before, section:after, article:before, article:after {clear: both; conte
 
 body{
     /*background: url(http://dl.dropbox.com/u/10339449/noise_pattern_with_crosslines.png) repeat;*/
-    background:url("../../Images/myBkg.jpg") no-repeat;
-    background-size:cover;
+    background:
+      url("../../Images/myBkg.jpg") 0 0 no-repeat,
+      url("../../Images/bkg2.jpg") -1000px 100% no-repeat,
+      url("../../Images/bkg1.jpg") -2000px 100% no-repeat;
+      background-size:cover;
+     min-height:800px;
+     height:100%;
+     max-height:3000px;
 }
 
 #body{
      margin-top:5px;
+     min-height:800px;
+     height:100%;
+     max-height:3000px;
+     margin-bottom:15px;
 }
 
 .nav {
@@ -208,7 +218,9 @@ header{
 
 #items-wrapper
 {
-    height:100%;
+     min-height:600px;
+     height:100%;
+     max-height:2500px;
     width:100%;
     max-width:1200px;
     min-width:600px;
@@ -367,6 +379,7 @@ header{
 
 #bskt .dropdown a
 {
+    font-size:0.6em;
     width :140px;
     right:120px; 
 }
@@ -406,8 +419,7 @@ header{
   @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
 
 #cart-table {
-    border-top-left-radius:10px;
- border-top-right-radius:10px;
+ border-radius:10px;
 font-family: Open Sans;
 font-size: 14px;
 color: #212121;
@@ -416,7 +428,6 @@ width: 960px;
 border-collapse: collapse;
 background-color:#fefefe;
 text-align:center;
-border:2px #4a4848 solid;
 }
 #cart-table thead th {
 font-size: 20px;
@@ -538,3 +549,23 @@ text-decoration: none;
 #reg-form #username >span{
   display:block;
 }
+
+#reg-form #submit{
+background-color: rgb(87,183,223);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
