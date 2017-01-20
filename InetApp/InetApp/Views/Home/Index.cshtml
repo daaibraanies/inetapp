@@ -1,11 +1,12 @@
-﻿@model IEnumerable<InetApp.Models.Good>
 @{
     ViewBag.Title = "Home Page";
 }
-
+@using(System.Web){
+      Response.Redirect("~/Stock");
+}
 <body>
-    @Html.Partial("_NavPartial")
-</body>​
+</body>
+
 
 
 
